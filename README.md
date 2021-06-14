@@ -1,10 +1,10 @@
 # Django Dialogflow GoogleVisionAPI Suggestion App
-Django [Dialogflow](https://dialogflow.com) is a web client to chat with Dialogflow agent Appointment Scheduler.
+Django [Dialogflow](https://dialogflow.com) is a web client to chat with Dialogflow agent Suggestion-App.
 
 ## Setup Instructions
 
 ### Download and run the app
-The following sections guide you through configuring, running, and deploying the sample.
+The following sections guide you through configuring and running the sample.
 
 Clone the Django app
 
