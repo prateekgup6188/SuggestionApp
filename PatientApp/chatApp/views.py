@@ -9,7 +9,10 @@ from google.oauth2 import service_account
 from google.cloud import dialogflow
 import os
 import json
+import nltk
+from nltk.tokenize import sent_tokenize, word_tokenize
 from chatApp.Intents import Scheduler,Reminder
+from chatApp import filter_data_handler
 # Create your views here.
 
 @require_http_methods(['GET'])
@@ -18,7 +21,7 @@ def index_view(request):
     return render(request, 'chatApp/home.html')
 
 
-## Function to call Dialogflow detectintent API endpoint
+## Function to call Dialogflow detect intent API endpoint
 def detect_intent_with_parameters():
     """Returns the result of detect intent with texts as inputs.
 
@@ -31,9 +34,11 @@ def detect_intent_with_parameters():
 
     session = session_client.session_path('nlp-jqut','123456789')
     print('Session path: {}\n'.format(session))
-
-    text = "Please book my appointment with Dr. Ram"
-
+    p1 = "Mrs. Little seems to have had an inadequate response to treatment as yet. Symptoms of depression continue to be described. Her symptoms, as noted, are unchanged and they are just as frequent or intense as previously described. Need to set up a follow-up call with the physician next week. Condition is critical"
+    text = "Call Little"
+    filtered_chat = filter_data_handler.clean_data(p1)
+    sentences = sent_tokenize(filtered_chat)
+    print(sentences)
     text_input = dialogflow.TextInput(
         text=text, language_code="en-US")
 

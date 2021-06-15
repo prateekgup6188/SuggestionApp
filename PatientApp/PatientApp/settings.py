@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ov5_u*&z1sfgrp2i2l$5l219ilo5gi*ol56w%ten(qish($bz5
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1',
-                 '135bc427386c.ngrok.io',
+                 '8178609b6cc4.ngrok.io',
                  'localhost',]
 
 
