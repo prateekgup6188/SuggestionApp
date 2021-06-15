@@ -24,8 +24,7 @@ Alternatively, you can download the sample as a zip and extract it.
 6. JSON file will be downloaded to your computer that you will need in the setup sections below.
 
 ### Set up Dialogflow DetectIntent endpoint to be called from the App
-1. Inside chat folder, replace the AppointmentScheduler.json with your own credentials json file. 
-2. In views.py in chat folder, Change the GOOGLE_PROJECT_ID = **"<YOUR_PROJECT_ID>"** to your project ID
+1. In views.py in chat folder, Change the GOOGLE_PROJECT_ID = **"<YOUR_PROJECT_ID>"** to your project ID
 
 ### Build and run the app locally
 To run the Django app on your local computer, you'll need to set up a Python development environment, including Python, pip, and virtualenv. For instructions, refer to Setting Up a Python Development Environment for Google Cloud Platform.
