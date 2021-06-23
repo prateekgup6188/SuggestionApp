@@ -19,7 +19,7 @@ def Schedule_Handler(params):
         if(type(date_time_obj) == str):
             date = format_date(date_time_obj.split('T')[0])
             mssg = mssg + " on " + date
-            print(date)
+            # print(date)
 
         elif(type(date_time_obj) == dict):
             if(date_time_obj.get('date_time')):
@@ -27,12 +27,12 @@ def Schedule_Handler(params):
                 time = date_time_obj['date_time'].split('T')[1]
                 time = time.split('+')[0]
                 mssg = mssg + " at " + time + " on " + date
-                print(date,time) 
+                # print(date,time) 
 
             elif(date_time_obj.get('startDate') and date_time_obj.get('endDate')):
                 startDate = format_date(date_time_obj.get('startDate').split('T')[0])
                 endDate = format_date(date_time_obj.get('endDate').split('T')[0])
                 mssg = mssg + " between " + startDate + " and " + endDate 
-                print(startDate,endDate)
+                # print(startDate,endDate)
     
     return mssg

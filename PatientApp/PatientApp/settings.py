@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ov5_u*&z1sfgrp2i2l$5l219ilo5gi*ol56w%ten(qish($bz5
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1',
-                 '8178609b6cc4.ngrok.io',
+                 '748407960614.ngrok.io',
                  'localhost',]
 
 
@@ -80,11 +80,19 @@ WSGI_APPLICATION = 'PatientApp.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'suggestiondb',
+    }
+}
+
+'''
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
     }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

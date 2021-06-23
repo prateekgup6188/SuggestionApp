@@ -1,31 +1,25 @@
 import nltk
-import os
 import nltk.corpus
 import re
-from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
-from nltk.probability import FreqDist
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import wordnet
 from nltk.stem import WordNetLemmatizer
-fdist = FreqDist()
 stop_words = set(stopwords.words('english'))
 word_lem = WordNetLemmatizer()
 punctuation = re.compile(r'[-?!,:;()|]')
 stop_words.add(',')
-from rake_nltk import Rake
-r = Rake()
 
 def clean_data(chat):
   data=[]
   sentences = sent_tokenize(chat)
   for sentence in sentences:
+    sentence = sentence.strip()
     words = word_tokenize(sentence)
     for word in words:
-      word=word.lower()
       word=punctuation.sub("",word)
-      if word in stop_words:
-        word = ""
+      # if word in stop_words:
+      #   word = ""
       if len(word)>0:
         word = word_lem.lemmatize(word)
         data.append(word)
