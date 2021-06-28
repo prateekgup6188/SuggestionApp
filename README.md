@@ -39,7 +39,6 @@ pip install Django
 Run the Django migrations to set up your models:
 ```js
 python manage.py makemigrations
-python manage.py makemigrations polls
 python manage.py migrate
 ```
 Start a local web server:
