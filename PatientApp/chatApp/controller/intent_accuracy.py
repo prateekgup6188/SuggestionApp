@@ -1,26 +1,16 @@
-import nltk
 import os
-from nltk.tokenize import sent_tokenize, word_tokenize
-import json, requests
-from datetime import datetime
-from google.oauth2 import service_account
 from google.cloud import dialogflow
-from chatApp.handler import filter_data_handler,detect_tense
-from chatApp.models import Suggest
+from autocorrect import Speller
 from dotenv import load_dotenv
 load_dotenv()
-
-
+spell = Speller()
 def get_accuracy(data):
-    
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv('KEY_PATH')
     session_client = dialogflow.SessionsClient()
     session = session_client.session_path(os.getenv('GOOGLE_PROJECT_ID'),os.getenv('SESSION_ID'))
     cnt = 0
     for sentence in data: 
-        # tense = detect_tense.determine_tense(sentence)
-        # if(tense != "past"):
-        text_input = dialogflow.TextInput(text=sentence[0], language_code="en-US")
+        text_input = dialogflow.TextInput(text=spell(sentence[0]), language_code="en-US")
         query_input = dialogflow.QueryInput(text=text_input)
         response = session_client.detect_intent(session=session, query_input=query_input,)
 

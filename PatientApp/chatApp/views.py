@@ -3,10 +3,8 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 import json, requests
-import os
 from chatApp.Intents import Scheduler,Reminder
 from chatApp.controller import suggestion,intent_accuracy
-
 # Create your views here.
 
 @require_http_methods(['GET'])
@@ -20,7 +18,6 @@ def index_view(request):
 def accuracy_view(request):
     req = json.loads(request.body)
     data = req.get('text')
-    # data = json.dumps(data)
     avg = intent_accuracy.get_accuracy(data)
     print(avg)
     return render(request,'chatApp/home.html')
