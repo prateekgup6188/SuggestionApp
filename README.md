@@ -1,4 +1,8 @@
 # Django Dialogflow GoogleVisionAPI Suggestion App
+![alt-text](http://hirendave.tech/wp-content/uploads/2019/01/unnamed-1.png)
+
+![alt-text](https://www.ryadel.com/wp-content/uploads/2019/07/phyton-django-logo-735x300.jpg)
+
 Django [Dialogflow](https://dialogflow.com) is a web client to chat with Dialogflow agent Suggestion-App.
 
 ## Setup Instructions
@@ -24,7 +28,7 @@ Alternatively, you can download the sample as a zip and extract it.
 6. JSON file will be downloaded to your computer that you will need in the setup sections below.
 
 ### Set up Dialogflow DetectIntent endpoint to be called from the App
-1. In views.py in chat folder, Change the GOOGLE_PROJECT_ID = **"<YOUR_PROJECT_ID>"** to your project ID
+Create a .env file in your root project directory and add "KEY_PATH", "GOOGLE_PROJECT_ID" and "SESSION_ID"(use "123456789" as default) from the JSON file.
 
 ### Build and run the app locally
 To run the Django app on your local computer, you'll need to set up a Python development environment, including Python, pip, and virtualenv. For instructions, refer to Setting Up a Python Development Environment for Google Cloud Platform.
@@ -45,7 +49,14 @@ Start a local web server:
 ```js
 python manage.py runserver
 ```
-In your web browser, enter this address:
 
-http://localhost:8000/
+### Send data using Postman to test the App
 
+Install Postman app on your device
+```js 
+https://www.postman.com/
+```
+To get suggestions for given text, use the following API to send data via Postman:-
+```js
+http://localhost:8000
+```
