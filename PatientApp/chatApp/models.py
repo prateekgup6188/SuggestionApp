@@ -6,7 +6,11 @@ import jsonfield
 class Suggest(models.Model):
     text = models.TextField()
     response = models.TextField()
-    intent = models.TextField(default=None)
+    patient_id = models.IntegerField()
+    note_id = models.IntegerField()
 
-    def __str__(self):
-        return self.text
+
+class Accuracy_DB(models.Model):
+    patient_id  = models.IntegerField()
+    text = models.TextField()
+    intent = models.CharField(max_length=255)

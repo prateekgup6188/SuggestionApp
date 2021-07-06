@@ -4,23 +4,34 @@ from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 import json, requests
 from chatApp.Intents import Scheduler,Reminder
-from chatApp.controller import suggestion,intent_accuracy
+from chatApp.controller import suggestion,intent_accuracy,parse_file_controller
 # Create your views here.
 
 @require_http_methods(['GET'])
 def index_view(request):
     req = json.loads(request.body)
     data = req.get('text')
-    suggestion.get_suggestions(data)
-    return render(request,'chatApp/home.html')
+    suggestion.get_suggestions(req.get('patient_id'),req.get('note_id'),data)
+    return HttpResponse(status=201)
 
 @require_http_methods(['GET'])
 def accuracy_view(request):
-    req = json.loads(request.body)
-    data = req.get('text')
-    avg = intent_accuracy.get_accuracy(data)
+    avg = intent_accuracy.get_accuracy()
     print(avg)
-    return render(request,'chatApp/home.html')
+    return HttpResponse(status=201) 
+
+@require_http_methods(['GET'])
+def patient_accuracy(request):
+    req = json.loads(request.body)
+    avg = intent_accuracy.get_accuracy(req.get('patient_id'))
+    print(avg)
+    return HttpResponse(status=201)
+
+@csrf_exempt
+def update_collection(request):
+    file = request.FILES.get('file')
+    parse_file_controller.parse_file(file)
+    return HttpResponse(status=201)
 
 @csrf_exempt
 def webhook(request):
