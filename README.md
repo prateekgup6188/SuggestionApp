@@ -1,14 +1,18 @@
-# Django Dialogflow GoogleVisionAPI Suggestion App
-![alt-text](http://hirendave.tech/wp-content/uploads/2019/01/unnamed-1.png)
+# Suggestion App
 
-![alt-text](https://www.ryadel.com/wp-content/uploads/2019/07/phyton-django-logo-735x300.jpg)
+
+![Dialogflow](http://hirendave.tech/wp-content/uploads/2019/01/unnamed-1.png)
+
+![Django + Python](https://www.ryadel.com/wp-content/uploads/2019/07/phyton-django-logo-735x300.jpg)
 
 Django [Dialogflow](https://dialogflow.com) is a web client to chat with Dialogflow agent Suggestion-App.
+
+Dialogflow is a natural language understanding platform used to design and integrate a conversational user interface into mobile apps, web applications, devices, bots, interactive voice response systems and related uses.
 
 ## Setup Instructions
 
 ### Download and run the app
-The following sections guide you through configuring and running the sample.
+The following sections guides you through configuring and running the sample.
 
 Clone the Django app
 
@@ -29,6 +33,10 @@ Alternatively, you can download the sample as a zip and extract it.
 
 ### Set up Dialogflow DetectIntent endpoint to be called from the App
 Create a .env file in your root project directory and add "KEY_PATH", "GOOGLE_PROJECT_ID" and "SESSION_ID"(use "123456789" as default) from the JSON file.
+Create new agent and start making intents and their default responses in dialogflow to train your model.
+```js
+https://dialogflow.cloud.google.com/
+```
 
 ### Build and run the app locally
 To run the Django app on your local computer, you'll need to set up a Python development environment, including Python, pip, and virtualenv. For instructions, refer to Setting Up a Python Development Environment for Google Cloud Platform.
@@ -60,3 +68,19 @@ To get suggestions for given text, use the following API to send data via Postma
 ```js
 http://localhost:8000
 ```
+![get_suggestion Request](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/get-suggestions.png)
+
+To check accuracy of model, use the following API to send data via Postman:-
+```js
+http://localhost:8000/chatApp/accuracy
+```
+![get_suggestion Request](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/get-accuracy.png)
+
+I have also integrated the project with MongoDB database for storing suggestion response for a given text using Suggest model in Django.
+
+## Tech Stack
+1. Dialogflow
+2. Django
+3. Python
+4. Postman
+
