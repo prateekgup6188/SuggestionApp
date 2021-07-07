@@ -15,6 +15,8 @@ def get_accuracy(patient_id = -1):
     session = session_client.session_path(os.getenv('GOOGLE_PROJECT_ID'),os.getenv('SESSION_ID'))
     cnt = 0
     data = get_notes(patient_id)
+    if(len(data) == 0):
+        return 0
     for sentence in data.iterator(): 
         text_input = dialogflow.TextInput(text=sentence.text, language_code="en-US")
         query_input = dialogflow.QueryInput(text=text_input)

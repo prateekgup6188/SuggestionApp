@@ -22,8 +22,7 @@ def accuracy_view(request):
 
 @require_http_methods(['GET'])
 def patient_accuracy(request):
-    req = json.loads(request.body)
-    avg = intent_accuracy.get_accuracy(req.get('patient_id'))
+    avg = intent_accuracy.get_accuracy(request.GET.get('id'))
     print(avg)
     return HttpResponse(status=201)
 
