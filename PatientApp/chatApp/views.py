@@ -18,13 +18,15 @@ def index_view(request):
 def accuracy_view(request):
     avg = intent_accuracy.get_accuracy()
     print(avg)
-    return HttpResponse(status=201) 
+    res=json.dumps({"Accuracy of the model is - ":avg})
+    return HttpResponse(res) 
 
 @require_http_methods(['GET'])
 def patient_accuracy(request):
     avg = intent_accuracy.get_accuracy(request.GET.get('id'))
     print(avg)
-    return HttpResponse(status=201)
+    res=json.dumps({"Accuracy of the model is - ":avg})
+    return HttpResponse(res) 
 
 @csrf_exempt
 def update_collection(request):
