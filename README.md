@@ -68,13 +68,28 @@ To get suggestions for given text, use the following API to send data via Postma
 ```js
 http://localhost:8000
 ```
-![get_suggestion Request](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/get-suggestions.png)
+![Get_Suggestion Request](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/get-suggestions.png)
 
-To check accuracy of model, use the following API to send data via Postman:-
+To check accuracy of complete model, use the following API to send data via Postman:-
 ```js
 http://localhost:8000/chatApp/accuracy
 ```
-![get_suggestion Request](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/get-accuracy.png)
+![Get_Accuracy Request](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/get-accuracy.png)
+
+
+To train existing model on a bunch of notes in a CSV file, use the following API to send data via Postman:-
+```js
+http://localhost:8000/chatApp/updateCollection
+```
+![Sample CSV file](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/CSV%20file.png)
+![Update Collection Request](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/update-collection.png)
+
+
+To check accuracy of model for  particular patient, use the following API to send data via Postman:-
+```js
+http://localhost:8000/chatApp/patientAccuracy?id={x}
+```
+![Patient Accurcy Request](https://github.com/prateekgup6188/SuggestionApp/blob/master/PatientApp/screenshots/patient-accuracy.png)
 
 I have also integrated the project with MongoDB database for storing suggestion response for a given text using Suggest model in Django.
 
